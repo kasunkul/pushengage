@@ -18,6 +18,9 @@
     "servers": [{
         "url": "http://localhost:5000/",
         "description": "Local server"
+    },{
+        "url": "https://pushengage-api.herokuapp.com/",
+        "description": "Heroku server"
     }],
     "tags": [
         {
