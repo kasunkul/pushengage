@@ -1,0 +1,32 @@
+{
+    "development": {
+        "baseUrl": "http://localhost:5000",
+        "cluster": "cluster0.lnhws.mongodb.net",
+        "database": "blog-sample",
+        "host": "localhost",
+        "password": "blog",
+        "port": 27017,
+        "url": "mongodb://[host]:[port]/[db]",
+        "username": "blog"
+    },
+    "test": {
+        "baseUrl": "http://localhost:5000",
+        "cluster": "cluster0.lnhws.mongodb.net",
+        "database": "blog-sample",
+        "host": "localhost",
+        "password": "blog",
+        "port": 27017,
+        "url": "mongodb://[host]:[port]/[db]",
+        "username": "blog"
+    },
+    "production": {
+        "baseUrl": "http://localhost:5000",
+        "cluster": "cluster0.lnhws.mongodb.net",
+        "database": "blog-sample",
+        "host": "localhost",
+        "password": "blog",
+        "port": 27017,
+        "url": "mongodb://[host]:[port]/[db]",
+        "username": "blog"
+    }
+}

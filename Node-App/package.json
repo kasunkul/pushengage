@@ -1,0 +1,54 @@
+{
+    "name": "API",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "seed": "node ./db/seed/seed-posts.js",
+        "start": "NODE_ENV=development node app.js",
+        "pm2": "NODE_ENV=development pm2 start app.js --name 'API-SERVER'",
+        "staging": "NODE_ENV=staging  pm2 start app.js --name 'API-SERVER'",
+        "production": "NODE_ENV=production pm2 start app.js --name 'API-SERVER'",
+        "development": "nodemon app.js",
+        "migrate": "npx sequelize db:migrate",
+        "test": "mocha",
+        "stop": "Taskkill /IM node.exe /F",
+        "lint": "eslint \"./src/**/*.js\" app.js  --fix"
+    },
+    "engines": {
+        "node": "12.3.1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@sendgrid/mail": "^7.2.5",
+        "axios": "^0.20.0",
+        "bcrypt": "^5.0.0",
+        "body-parser": "^1.19.0",
+        "chai": "^4.2.0",
+        "config": "^3.3.1",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-joi-validation": "^4.0.3",
+        "express-validator": "^6.6.1",
+        "jsonwebtoken": "^8.5.1",
+        "mocha": "^8.2.1",
+        "moment": "^2.27.0",
+        "mongoose": "^5.12.3",
+        "mongoose-seed": "^0.6.0",
+        "morgan": "^1.10.0",
+        "mysql2": "^2.1.0",
+        "request": "^2.88.2",
+        "swagger-ui-express": "^4.1.4",
+        "yamlparser": "0.0.2"
+    },
+    "devDependencies": {
+        "eslint": "^7.6.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "nodemon": "^2.0.4",
+        "sequelize-cli": "^6.2.0"
+    }
+}

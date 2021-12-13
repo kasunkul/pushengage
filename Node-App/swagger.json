@@ -1,0 +1,206 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "version": "1.0.0",
+        "title": "APIs Document",
+        "description": "Swagger Documentation",
+        "termsOfService": "",
+        "contact": {
+            "name": "Kasun Kulathunga",
+            "email": "kasun.kulathunga@gmail.com",
+            "url": "https://kasun.kulathunga"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "servers": [{
+        "url": "http://localhost:5000/",
+        "description": "Local server"
+    }],
+    "tags": [
+        {
+            "name": "Blog",
+            "description": "Blog Endpoints"
+        }
+    ],
+    "paths": {
+        "/blog/create": {
+            "post": {
+                "tags": ["Blog"],
+                "description": "Create a Blog Post",
+                "operationId": "create",
+                "summary": "No Auth Required",
+                "security": [],
+                "responses": {
+                    "200": {
+                        "description": "Create a Blog Post",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "description": "Please Enter a Title, Content and Date in Unix Format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Blog"
+                            },
+                            "examples": {
+                                "Create Blog": {
+                                    "summary": "Creating a sample blog",
+                                    "value": {
+                                        "title": "test title",
+                                        "content": "test content",
+                                        "date": 1576281600
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "x-codegen-request-body-name": "body"
+            }
+        },
+        "/blog/getAll": {
+            "get": {
+                "tags": ["Blog"],
+                "description": "Get all blogs",
+                "operationId": "getAll",
+                "summary": "No Auth Required",
+                "security": [],
+                "responses": {
+                    "200": {
+                        "description": "Get all blogs",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/blog/get/{id}": {
+            "get": {
+                "tags": ["Blog"],
+                "description": "Numeric ID of the blog to get",
+                "operationId": "getById",
+                "summary": "No Auth Required",
+                "parameters":
+                        {
+                            "in": "path",
+                            "name": "id",
+                            "required": true,
+                            "example": 456
+                        },
+                "responses": {
+                    "200": {
+                        "description": "Numeric ID of the blog to get",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/blog/saveComment": {
+            "post": {
+                "tags": ["Blog"],
+                "description": "Save Comment on a Blog Post",
+                "operationId": "saveComment",
+                "summary": "No Auth Required",
+                "security": [],
+                "responses": {
+                    "200": {
+                        "description": "Save Comment on a Blog Post",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "description": "Please send the _id and Comments array in the body",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Blog"
+                            },
+                            "examples": {
+                                "Add Comments": {
+                                    "summary": "Creating a sample blog comment",
+                                    "value": {
+                                        "_id": "61b6a89cde43ba7ca84dbe8c",
+                                        "comments":[
+                                            {
+                                               "name":"Bob",
+                                               "date":"June 25, 2021 05:46:AM",
+                                               "comment":"Here's where you'll find this repository's source files. To give your users an idea of what they'll find here, add a description to your repository.",
+                                               "reply":[
+                                                  {
+                                                     "name":"Sharah",
+                                                     "date":"June 25, 2021 05:46:AM",
+                                                     "comment":"Here's where you'll find this repository's source files. To give your users an idea of what they'll find here, add a description to your repository.",
+                                                     "reply":[
+                                                        {
+                                                           "name":"Jason",
+                                                           "date":"June 25, 2021 05:46:AM",
+                                                           "comment":"Here's where you'll find this repository's source files. To give your users an idea of what they'll find here, add a description to your repository."
+                                                        }
+                                                     ]
+                                                  }
+                                               ]
+                                            }]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "x-codegen-request-body-name": "body"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Blog": {
+                "required": [],
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "Sample title"
+                    },
+                    "content": {
+                        "type": "double",
+                        "example": "Sample content"
+                    },
+                    "date": {
+                        "type": "integer",
+                        "example": 1576281600
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "api_auth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "security": {
+        "api_auth": []
+    }
+}
