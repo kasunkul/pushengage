@@ -1,7 +1,7 @@
 {
     "name": "api-server",
     "description": "",
-    "repository": "https://github.com/kasunkul/farshan-api-server",
+    "repository": "https://github.com/kasunkul/pushengage",
     "logo": "https://node-js-sample.herokuapp.com/node.png",
     "keywords": ["node", "express", "static"]
 }
